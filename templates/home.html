@@ -5,3 +5,9 @@
 <form action="/switch_off" method="GET">
     <input type="submit" value="Switch Off">
 </form>
+<form action="/get_reading" method="GET">
+    <input type="submit" value="Get Temperature and Humidity Reading">
+</form>
+{% if humid and temp %}
+	<h3> Humidity - {{humid}}, Temperature - {{temp}} </h3>
+{% endif %}
