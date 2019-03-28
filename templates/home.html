@@ -11,3 +11,9 @@
 {% if humid and temp %}
 	<h3> Humidity - {{humid}}, Temperature - {{temp}} </h3>
 {% endif %}
+<form action="/distance" method="GET">
+    <input type="submit" value="Get Distance Reading">
+</form>
+{% if distance %}
+        <h3> Distance - {{distance}} </h3>
+{% endif %}
