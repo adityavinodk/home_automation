@@ -1,15 +1,39 @@
 <html>
 <head>
-	<meta http-equiv="refresh" content="2">
+		<meta http-equiv="refresh" content="2">
+		<title>Home Automation and Security System</title>
+			<!-- If IE use the latest rendering engine -->
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+			<!-- Set the page to the width of the device and set the zoon level -->
+			<meta name="viewport" content="width = device-width, initial-scale = 1">
+			<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+			<style>
+				form,button
+				{
+					display: inline;
+				}
+				.jumbotron
+				{
+					color:black;
+					width: 100%;
+					align: center;
+				}
+			</style>
 </head>
 <body>
 	
-	<h1>HELLO</h1>
+		<div class="container-fluid">
+				<div class="jumbotron page-header">
+					<h1><img src="home.png">HOME AUTOMATION AND SECURITY SYSTEM</h1>
+				</div>
+		</div>
 	{% if dist %}
-		<h2> Distance - {{dist}} </h2>
+		<h2> Distance : {{dist}} </h2>
 	{% endif %}
+	<br>
 	<form action="/switch_off_system" method="GET">
-	    <input type="submit" value="Switch Off System">
+	    <input type="submit" value="Switch Off System" class="btn btn-danger btn-block btn-lg">
 	</form>
 	<br><br>
 </body>

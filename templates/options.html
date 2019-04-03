@@ -1,24 +1,66 @@
 <head>
 	<meta http-equiv="refresh" content="2">
+	<title>Home Automation and Security System</title>
+        <!-- If IE use the latest rendering engine -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- Set the page to the width of the device and set the zoon level -->
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <style>
+            form,button
+            {
+                display: inline;
+            }
+            .jumbotron
+            {
+                color:black;
+                width: 100%;
+                align: center;
+            }
+        </style>
 </head>
-<h1>Hi! Press the button to switch on the system.</h1>
-<div id="light10">
-	<button onclick="switchOnLight(event)">Switch on Light 1 </button><br>
-	<button onclick="switchOffLight(event)">Switch off Light 1 </button>
-</div><br><br>
-<div id="light9">
-	<button onclick="switchOnLight(event)">Switch on Light 2 </button><br>
-	<button onclick="switchOffLight(event)">Switch off Light 2 </button>
-</div><br>
-<h2> Room Readings </h2>
-{% if temp and humid %}
-	<h4> Temperature - {{temp}}</h4>
-	<h4> Humidity - {{humid}}</h4>
-{% endif %}
-<form action="/switch_on_system" method="GET">
-    <input type="submit" value="Switch On System">
-</form>
+
 <body>
+		<div class="container-fluid">
+				<div class="jumbotron page-header">
+					<h1><img src="home.png">HOME AUTOMATION AND SECURITY SYSTEM</h1>
+				</div>
+			</div>
+		
+		<div id="light10" class="panel panel-default">
+				<div class="panel-heading">
+						<h3>Bulb 1</h3>
+					</div>
+					<div class="panel-body">
+			<button onclick="switchOnLight(event)" class="btn btn-md btn-success">Switch on Light 1 </button>
+			<button onclick="switchOffLight(event)" class="btn btn-md btn-danger">Switch off Light 1 </button>
+		</div></div><br><br>
+
+		<div id="light9" class="panel panel-default">
+				<div class="panel-heading">
+						<h3>Bulb 2</h3>
+					</div>
+					<div class="panel-body">
+					<button onclick="switchOnLight(event)" class="btn btn-md btn-success">Switch on Light 2 </button>
+					<button onclick="switchOffLight(event)" class="btn btn-md btn-danger">Switch off Light 2 </button>
+		</div></div><br><br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+					ROOM READINGS:
+			</div>
+			<div class="panel-body">
+		{% if temp and humid %}
+			<h2> Temperature : {{temp}}</h2>
+			<h2> Humidity : {{humid}}</h2>
+		{% endif %}
+	</div>
+	</div>
+		<form action="/switch_on_system" method="GET">
+			<input type="submit" value="Switch On System" class="btn btn-primary btn-lg btn-block">
+		</form>
+		</div>
 	<script>
 		function switchOnLight(e){
 			var parent = e.target.parentElement;
