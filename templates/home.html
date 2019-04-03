@@ -1,19 +1,20 @@
-<h1>HELLO</h1>
-<form action="/switch_on" method="GET">
-    <input type="submit" value="Switch On">
-</form>
-<form action="/switch_off" method="GET">
-    <input type="submit" value="Switch Off">
-</form>
-<form action="/get_reading" method="GET">
-    <input type="submit" value="Get Temperature and Humidity Reading">
-</form>
-{% if humid and temp %}
-	<h3> Humidity - {{humid}}, Temperature - {{temp}} </h3>
-{% endif %}
-<form action="/distance" method="GET">
-    <input type="submit" value="Get Distance Reading">
-</form>
-{% if distance %}
-        <h3> Distance - {{distance}} </h3>
+<html>
+<head>
+	<meta http-equiv="refresh" content="2">
+</head>
+<body>
+	
+	<h1>HELLO</h1>
+	{% if dist %}
+		<h2> Distance - {{dist}} </h2>
+	{% endif %}
+	<form action="/switch_off_system" method="GET">
+	    <input type="submit" value="Switch Off System">
+	</form>
+	<br><br>
+</body>
+</html>
+
+{% if danger %}
+	<h2>DANGER !!!!!!!</h2>
 {% endif %}

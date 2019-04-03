@@ -1,0 +1,55 @@
+<head>
+	<meta http-equiv="refresh" content="2">
+</head>
+<h1>Hi! Press the button to switch on the system.</h1>
+<div id="light10">
+	<button onclick="switchOnLight(event)">Switch on Light 1 </button><br>
+	<button onclick="switchOffLight(event)">Switch off Light 1 </button>
+</div><br><br>
+<div id="light9">
+	<button onclick="switchOnLight(event)">Switch on Light 2 </button><br>
+	<button onclick="switchOffLight(event)">Switch off Light 2 </button>
+</div><br>
+<h2> Room Readings </h2>
+{% if temp and humid %}
+	<h4> Temperature - {{temp}}</h4>
+	<h4> Humidity - {{humid}}</h4>
+{% endif %}
+<form action="/switch_on_system" method="GET">
+    <input type="submit" value="Switch On System">
+</form>
+<body>
+	<script>
+		function switchOnLight(e){
+			var parent = e.target.parentElement;
+			if(parent.id=='light10'){
+				var xhttp = new XMLHttpRequest();
+				xhttp.open('GET', '/switch_on_light/10', true)
+				xhttp.send()
+				console.log("Light 10 switched on")
+			}
+			else if(parent.id=='light9'){
+				var xhttp = new XMLHttpRequest();
+				xhttp.open('GET', '/switch_on_light/9', true)
+				xhttp.send()
+				console.log("Light 9 switched on")
+			}
+		}
+		
+		function switchOffLight(e){
+			var parent = e.target.parentElement;
+			if(parent.id=='light10'){
+				var xhttp = new XMLHttpRequest();
+				xhttp.open('GET', '/switch_off_light/10', true)
+				xhttp.send()
+				console.log("Light 10 switched off")
+			}
+			else if(parent.id=='light9'){
+				var xhttp = new XMLHttpRequest();
+				xhttp.open('GET', '/switch_off_light/9', true)
+				xhttp.send()
+				console.log("Light 9 switched off")
+			}
+		}
+	</script>
+</body> 
