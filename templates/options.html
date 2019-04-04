@@ -1,56 +1,99 @@
 <head>
-	<meta http-equiv="refresh" content="5">
-	<title>Home Automation and Security System</title>
+	<meta http-equiv="refresh" content="15">
+	<title>Home Automation</title>
         <!-- If IE use the latest rendering engine -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <!-- Set the page to the width of the device and set the zoon level -->
         <meta name="viewport" content="width = device-width, initial-scale = 1">
-        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
         <style>
-            form,button
-            {
-                display: inline;
-            }
-            .jumbotron
-            {
-                color:black;
-                width: 100%;
-                align: center;
-            }
+			.container{
+				background-color: cadetblue;
+				color: azure;
+				font-size:65%;
+				border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px;
+			}
+			.button2 {
+					background-color:darkslategrey;
+					border: none;
+					color: white;
+					padding: 15px 32px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 16px;
+					}
+			.button {
+					background-color:darkslategrey;
+					border: none;
+					color: white;
+					padding: 15px 32px;
+					width: 100%;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 16px;
+					}
+			body{
+					background-color:gainsboro;
+					font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+				}
+				.distance{
+					padding-left: 15%;
+					color:darkslateblue;
+					font-size: larger;
+				}
+				span{
+					color: goldenrod;
+				}
+				.alert{
+					color: red;
+				}
+				.room{
+					padding-left: 7.5%;
+				}
+				.rr{
+					padding-left: 10%;
+					color:coral;
+				}
         </style>
 </head>
 
 <body>
-		<div class="container-fluid">
-				<div class="jumbotron page-header">
-					<h1><img src="home.png">HOME AUTOMATION AND SECURITY SYSTEM</h1>
+		<div class="container">
+				<div class="heading">
+					<br><br><br>
+					<pre>	<h1>HOME AUTOMATION AND SECURITY SYSTEM</h1></pre>
+					<br>
 				</div>
-			</div>
-		
-		<div id="light10" class="panel panel-default">
-			<h3>Bulb 1</h3>			
-			<button onclick="switchOnLight(event)" class="btn btn-md btn-success">Switch on Light 1 </button>
-			<button onclick="switchOffLight(event)" class="btn btn-md btn-danger">Switch off Light 1 </button></div><br><br>
+		</div>
+		<div id="light10" class="rooms">
+			<h3 class="room">Room 1</h3>			
+			<button onclick="switchOnLight(event)" class="button2">Switch on Lights</button>
+			<button onclick="switchOffLight(event)" class="button2">Switch off Lights</button>
+		</div><br><br>
 
-		<div id="light9" class="panel panel-default">
-					<h3>Bulb 2</h3>
-					<button onclick="switchOnLight(event)" class="btn btn-md btn-success">Switch on Light 2 </button>
-					<button onclick="switchOffLight(event)" class="btn btn-md btn-danger">Switch off Light 2 </button></div><br><br>
+		<div id="light9" class="rooms">
+					<h3 class="room">Room 2</h3>
+					<button onclick="switchOnLight(event)" class="button2">Switch on Lights</button>
+					<button onclick="switchOffLight(event)" class="button2">Switch off Lights</button>
+				</div><br><br>
 
-		<div class="panel panel-default">
-			<div class="panel-heading">
-					ROOM READINGS:
+		<div class="">
+			<div class="rr">
+					<h2>ROOM READINGS:</h2>
 			</div>
-			<div class="panel-body">
+			<div class="distance">
 		{% if temp and humid %}
-			<h2> Temperature : {{temp}}</h2>
-			<h2> Humidity : {{humid}}</h2>
+			<h2> Temperature : <span>{{temp}}</span></h2>
+			<h2> Humidity : <span>{{humid}}</span></h2>
 		{% endif %}
 	</div>
 	</div>
+	<br><br><br>
 		<form action="/switch_on_system" method="GET">
-			<input type="submit" value="Switch On System" class="btn btn-primary btn-lg btn-block">
+			<input type="submit" value="Switch On Security System" class="button">
 		</form>
 		</div>
 	<script>
@@ -87,3 +130,4 @@
 		}
 	</script>
 </body> 
+

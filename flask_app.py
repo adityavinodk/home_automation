@@ -39,6 +39,7 @@ def home():
 			danger=True
 			GPIO.output(22, GPIO.HIGH)
 			sleep(1)
+			GPIO.output(22, GPIO.LOW)
 		else: GPIO.output(22, GPIO.LOW)
 		return render_template('home.html', dist=dist, danger=danger)
 	return redirect('/')
